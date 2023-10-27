@@ -1,14 +1,14 @@
 //variable//
 const dadu = document.querySelector(".dice");// ini gambar dadu
-const player0 = document.querySelector("#section-0");//ini player 1
-const player1 = document.querySelector("#section-1");//ini player 2
+const player0 = document.querySelector("#section-0");//ini player 1 animasi button
+const player1 = document.querySelector("#section-1");//ini player 2 animasi button
 const game_baru = document.getElementById("btn-baru");//ini button restart game
 const dadu_putar = document.getElementById("btn-putar");//ini button buat mutar dadu
 const dadu_tahan = document.getElementById("btn-tahan");//ini button buat dadunya ditahan kemudian ditukar player lain
 const giliranMain = document.querySelector(".giliran-main");//giliran siapa yang main
-let scores = [0, 0]; //ini score (makai array karena ada 2 nilai)
-let nilaiSementara = 0;//agar ketika ganti player nanti nilainya jadi 0
-let playerAktif = 0;//player active selalu player 1
+var scores = [0, 0]; //ini score (makai array karena ada 2 nilai)
+var nilaiSementara = 0;//agar ketika ganti player nanti nilainya jadi 0
+var playerAktif = 0;//player active selalu player 1
 
 function gantiPlayer() {
   giliranMain.value = 'Giliran: Pemain ' + (playerAktif + 1); //ganti player panggil giliran main (buat warna activenya) ini array :) player 0 = 1
