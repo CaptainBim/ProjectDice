@@ -26,7 +26,7 @@ function UbahPlayer() { // ini tuker player
   document.getElementById('current-1').textContent = '0';//ketika pergantian player nilai menjadi 0
   player0.classList.toggle('player-active');//ketika pergantian player nilai  menjadi 0 (warna)
   player1.classList.toggle('player-active');//ketika pergantian player nilai  menjadi 0
-  gantiPlayer();//ganti player
+  gantiPlayer();//ganti warna
 }
 
 //roll dadu//
@@ -37,7 +37,7 @@ dadu_putar.addEventListener('click', function() {
     nilaiSementara += dice;//nilai sementara ditambah oleh nilai dadu random
     document.getElementById('current-' + playerAktif).textContent = nilaiSementara;//masukkan nilai sementara (dadu) ke nilai asli
   } else {//disini. tuker player
-    UbahPlayer();
+    UbahPlayer();//ganti warna
   }
 });
 
@@ -50,7 +50,7 @@ dadu_tahan.addEventListener('click', function() {
     dadu_putar.disabled = true; //button ditahan
     dadu_tahan.disabled = true; //tidak bisa ditekan
   } else {
-    UbahPlayer();//tuker player
+    UbahPlayer();//ganti warna
   }
 });
 
