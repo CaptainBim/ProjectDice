@@ -8,7 +8,7 @@ const dadu_tahan = document.getElementById("btn-tahan");//ini button buat daduny
 const giliranMain = document.querySelector(".giliran-main");//giliran siapa yang main
 var scores = [0, 0]; //ini score (makai array karena ada 2 nilai)
 var nilaiSementara = 0;//agar ketika ganti player nanti nilainya jadi 0
-var playerAktif = 0;//player active selalu player 1
+var playerAktif = 0;//player aktif
 
 function gantiPlayer() {
   giliranMain.value = 'Giliran: Pemain ' + (playerAktif + 1); //ganti player panggil giliran main (buat warna activenya) ini array :) player 0 = 1
