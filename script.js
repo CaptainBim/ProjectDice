@@ -6,7 +6,7 @@ const game_baru = document.getElementById("btn-baru");//ini button restart game
 const dadu_putar = document.getElementById("btn-putar");//ini button buat mutar dadu
 const dadu_tahan = document.getElementById("btn-tahan");//ini button buat dadunya ditahan kemudian ditukar player lain
 const giliranMain = document.querySelector(".giliran-main");//giliran siapa yang main
-var scores = [0, 0]; //ini score (makai array karena ada 2 nilai)
+var skor = [0, 0]; //ini score (makai array karena ada 2 nilai) / tipe data let juga bisa (var cakupannya global/let cuman bisa didalam box function)
 var nilaiSementara = 0;//agar ketika ganti player nanti nilainya jadi 0
 var playerAktif = 0;//player aktif
 
@@ -24,8 +24,8 @@ function UbahPlayer() { // ini tuker player
   nilaiSementara = 0; //ketika pergantian player nilai sementara menjadi 0
   document.getElementById('current-0').textContent = '0';//ketika pergantian player nilai menjadi 0
   document.getElementById('current-1').textContent = '0';//ketika pergantian player nilai menjadi 0
-  player0.classList.toggle('player-active');//ketika pergantian player nilai  menjadi 0 (warna)
-  player1.classList.toggle('player-active');//ketika pergantian player nilai  menjadi 0
+  player0.classList.toggle('player-active');//ganti warna
+  player1.classList.toggle('player-active');
   gantiPlayer();//ganti warna
 }
 
@@ -43,12 +43,16 @@ dadu_putar.addEventListener('click', function() {
 
 //dadu ditahan//
 dadu_tahan.addEventListener('click', function() {
-  scores[playerAktif] += nilaiSementara;//nilai asli ditambah dengan nilai sementara (dadu)
-  document.getElementById('score-' + playerAktif).textContent = scores[playerAktif]; //mengubah nilai score
-  if (scores[playerAktif] >= 100) {//jika nilai asli 100 maka
+  skor[playerAktif] += nilaiSementara;//nilai asli ditambah dengan nilai sementara (dadu)
+  document.getElementById('score-' + playerAktif).textContent = skor[playerAktif]; //mengubah nilai score
+  if (skor[playerAktif] >= 100) {//jika nilai asli 100 maka
+    document.querySelector('.player-'+ playerAktif).classList.add('player-winner');
+    document.querySelector('.player-'+ playerAktif).classList.remove('player-active');
+
     document.getElementById('name-' + playerAktif).textContent = 'Win!';//ubah tulisan playernya jadi win kemudian...
     dadu_putar.disabled = true; //button ditahan
     dadu_tahan.disabled = true; //tidak bisa ditekan
+    //document.querySelector('.dice').style.display = 'none'; //menghilangkan dadu
   } else {
     UbahPlayer();//ganti warna
   }
